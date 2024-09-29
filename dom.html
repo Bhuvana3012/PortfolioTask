@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Individual Field Alerts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-image: url(1.jpg);
+            background-size: cover;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .gender, .hobbies {
+            margin: 10px 0;
+        }
+        input[type="button"] {
+            background-color: lightcoral;
+            color: white;
+            border: none;
+            padding: 10px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        input[type="button"]:hover {
+            background-color: crimson;
+        }
+        textarea {
+            height: 100px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -8px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personal Information</h1>
+    <form id="personalInfoForm">
+        <label for="fname">First Name:</label>
+        <input type="text" placeholder="Enter your Firstname" id="fname" name="fname" required/>
+        <span id="fnameError" class="error">First name is required.</span>
+
+        <label for="Lname">Last Name:</label>
+        <input type="text" placeholder="Enter your Lastname" id="Lname" name="Lname" required/>
+        <span id="lnameError" class="error">Last name is required.</span>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male"> Male<br>
+        <input type="radio" id="female" name="gender" value="female"> Female<br>
+        <input type="radio" id="other" name="gender" value="other"> Others<br>
+        <span id="genderError" class="error">Gender is required.</span>
+
+        <label for="Age">Age:</label>
+        <input type="text" id="Age" name="Age" required/>
+        <span id="ageError" class="error">Age is required.</span>
+
+        <label for="DOB">Date of Birth:</label>
+        <input type="date" id="DOB" name="DOB" required/>
+        <span id="dobError" class="error">Date of Birth is required.</span>
+
+        <label for="email">Email:</label>
+        <input type="email" placeholder="email@gmail.com" id="email" name="email" required/>
+        <span id="emailError" class="error">Email is required.</span>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required/>
+        <span id="passwordError" class="error">Password is required.</span>
+
+        <label for="phone">Mobile:</label>
+        <input type="tel" id="phone" name="phone" required/>
+        <span id="phoneError" class="error">Mobile number is required.</span>
+
+        <label for="hobbies">Hobbies:</label>
+        <input type="checkbox" id="drawing" name="hobbies" value="drawing" /> Drawing<br>
+        <input type="checkbox" id="music" name="hobbies" value="music"/> Music<br>
+        <input type="checkbox" id="games" name="hobbies" value="games" /> Games<br>
+
+        <label for="address"><strong>Address:</strong></label>
+        <textarea name="address" id="address"></textarea>
+        <span id="addressError" class="error">Address is required.</span>
+
+        <input type="button" value="Submit" id="submitBtn" /><br><br><br>
+        <input type="button" value="Reset" id="resetBtn" />
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('personalInfoForm');
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.addEventListener('click', function () {
+                validateForm();
+            });
+
+            function validateForm() {
+                let isValid = true;
+
+                const fname = form.fname.value.trim();
+                const lname = form.Lname.value.trim();
+                const gender = form.querySelector('input[name="gender"]:checked');
+                const age = form.Age.value.trim();
+                const dob = form.DOB.value;
+                const email = form.email.value.trim();
+                const password = form.password.value.trim();
+                const phone = form.phone.value.trim();
+                const address = form.address.value.trim();
+
+                // Reset all error messages
+                document.querySelectorAll('.error').forEach(errorSpan => errorSpan.style.display = 'none');
+
+                if (!fname) {
+                    document.getElementById('fnameError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!lname) {
+                    document.getElementById('lnameError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!gender) {
+                    document.getElementById('genderError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!age) {
+                    document.getElementById('ageError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!dob) {
+                    document.getElementById('dobError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!email) {
+                    document.getElementById('emailError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!password) {
+                    document.getElementById('passwordError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!phone) {
+                    document.getElementById('phoneError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!address) {
+                    document.getElementById('addressError').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    alert("Form Submitted Successfully!");
+                    console.log({
+                        fname,
+                        lname,
+                        gender: gender ? gender.value : '',
+                        age,
+                        dob,
+                        email,
+                        password,
+                        phone,
+                        address
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Menu</title>
+    
+</head>
+<body>
+    
+    <div class="header">
+        <div class="logo">portfolio.</div>
+        <div class="toggle-button" onclick="toggleMenu()">&#9776;</div>
+        <div class="navbar mobile-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#project">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    
+    
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active'); // Toggle the active class
+        }
+           
+    </script>
+
+
+
+    
+    <div class="container" id="home">
+        <div class="home-content">
+            <div class="text-content">
+                <h3 class="part-1">Hello, Myself</h3>
+                <h1 class="part-2">BHUVANA</h1>
+                <h3>And I'm a <span>Web Developer</span></h3>
+                <p>Welcome to my digital home. I hope that you'll like this portfolio.</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/login" target="_blank">
+                        <i class="uil uil-instagram" style="--i:7"></i>
+                    </a>
+                    <a href="https://twitter.com/loginpage" target="_blank">
+                        <i class="uil uil-twitter" style="--i:8"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bhuvana m" target="_blank">
+                        <i class="uil uil-linkedin" style="--i:9"></i>
+                    </a>
+                    <a href="https://github.com/Bhuvana3012" target="_blank">
+                        <i class="uil uil-github-alt" style="--i:10"></i>
+                    </a>
+                </div>
+            </div>
+            <img src="12.jpg" class="circle-image" alt="Description of image">
+        </div>
+    </div>
+    
+     <section class="about-container" id="about">
+        <div class="heading">About <span>Me</span></div><br><br>
+        <p class="aligned-text">
+            I am BHUVANESHWARI M, a recent graduate from Madurai KamarajarUniversity.
+             I am passionate  about web development, with a degree in B.Sc form
+             Kamarajar University. In my spare time, I enjoy listening to music.
+            I'm excited to explore new opportunities and continue growing in my career.
+            This portfolio showcases my projects, highlighting my creativity and adaptability in various formats
+        </p><br><br>
+        
+        <button class="button"><a href="resume.html.pdf">Download CV</a></button>
+    
+    </section>
+
+    
+<section id="skills" class="skills-section">
+    <div class="heading">Skills</div>
+    <h1 align-item=center>Professional Skill</h1><br>
+    
+    <div class="skills-list">
+        <div class="skill-item">
+            <div class="skill-info">
+                <span><i class="fab fa-html5" style="margin-right: 5px;"></i>HTML</span>
+                <span>90%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%;"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info">
+                <span><i class="fab fa-css3-alt" style="margin-right: 5px;"></i>CSS</span>
+                <span>85%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%;"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info">
+                <span><i class="fab fa-js" style="margin-right: 5px;"></i>JavaScript</span>
+                <span>80%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%;"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info">
+                <span><i class="fas fa-camera" style="margin-right: 5px;"></i>Photography</span>
+                <span>75%</span>
+            </div>
+           
+        </div>
+    </div>
+    
+        
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%;"></div>
+            </div><br><br>
+            <div class="animated-paragraph">
+                <p>Strong leadership and effective communication skills. Adept at fostering teamwork and collaboration among diverse groups, 
+                   while demonstrating problem-solving abilities in fast-paced environments. 
+                   Proven track record of adapting to changing priorities and driving successful outcomes.</p>
+            </div>
+        </div>    
+    </div>
+</section>
+<section class="project" id="project"></section>
+    <h2 class="heading">My <span>Project</span></h2>
+    <div class="project-container">
+        <div class="project-box">
+        
+        <h3>Validation</h3>
+            
+         <a href="1.html">View Form</a>
+<br>
+         <a href="information.html">View Login</a><br>
+         <a href="dom.html">View DOM</a>
+<br><br><br>  <p>Document that provides a detailed overview of a project's progress, objectives, and outcomes. It's a formal record of a project's.</p>
+    
+        </div>
+    </div>
+</section>
+<section class="contact" id="contact"></section>
+<div class="container">
+    <form id="contact">
+        <h2>Contact</h2>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</section>
+<script> 
+  document.getElementById("contactForm").addEventListener("submit", function(event){
+     event.preventDefault(); // Prevent form submission
+
+     let name = document.getElementById("name").value.trim();
+     let email = document.getElementById("email").value.trim();
+     let subject = document.getElementById("subject").value.trim();
+     let message = document.getElementById("message").value.trim();
+
+     // Validate if fields are empty
+     if (name === "" || email === "" || subject === "" || message === "") {
+         alert("All fields are required.");
+         return false;
+     }
+
+     // Validate email format
+     if (!validateEmail(email)) {
+         alert("Please enter a valid email address.");
+         return false;
+     }
+
+     // All validations passed
+     alert("Send Successfully!");
+  });
+
+  function validateEmail(email) {
+     // Simple email regex validation
+     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     return re.test(String(email).toLowerCase());
+  }
+</script>
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <div class="contact-info" data-aos="fade-up">
+    <h3>Contact Me</h3>
+    <ul>
+        <li>
+            <i class="fas fa-envelope"></i>
+            <strong>Email:</strong>
+            <a href="mailto:example@gmail.com">example@gmail.com</a>
+        </li>
+        <li>
+            <i class="fas fa-phone-alt"></i>
+            <strong>Phone:</strong>
+            <a href="tel:+1234567890">+91 7708105818</a>
+        </li>
+        <li>
+            <i class="fab fa-whatsapp"></i>
+            <strong>WhatsApp:</strong>
+            <a href="https://wa.me/qr/J7EL2WR2YGL6P1" target="_blank"> WhatsApp</a>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+</section>
+<div class="thank-you-container">
+    <h2>Thank You!</h2>
+</div>
+
+
+</body>
+</html>
